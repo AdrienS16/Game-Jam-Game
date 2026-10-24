@@ -3,9 +3,14 @@ class_name Player extends CharacterBody2D
 @export var speed := 75.0
 @export var jump_speed := 160.0
 @export var gravity := 350.0
+@export var grapple_accel := 1.0
 
 var facing_right = false
 var interacting = false
+var grappling = false
+
+var grappleTarget = Vector2(0, 0)
+var grappleDelta = Vector2(0, 0)
 
 func _process(delta: float) -> void:
 	# Handle movement
@@ -13,27 +18,49 @@ func _process(delta: float) -> void:
 	if interacting:
 		input = 0
 	
-	velocity.x = input * speed
+	if (not grappling):
+		velocity.x = input * speed
+		
+		# Handle jumping
+		velocity.y += gravity * delta
+		if Input.is_action_just_pressed("jump"):
+			if is_on_floor() and not interacting:
+				velocity.y = -jump_speed
+		if Input.is_action_just_released("jump"):
+			if velocity.y < 0:
+				velocity.y = 0
+		
+		# To make something interactable, make sure it's a collision object (can be body or area),
+		# make sure it's on collision layer 2, and make sure it has a function called 'interact()'
+		if Input.is_action_just_pressed("interact"):
+			if is_on_floor() and not interacting:
+				interact()
+			
+	#Handle grapple
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if (not grappling):
+			grappling = true
+			grappleTarget = get_global_mouse_position()
 	
-	# Handle jumping
-	velocity.y += gravity * delta
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor() and not interacting:
-			velocity.y = -jump_speed
-	if Input.is_action_just_released("jump"):
-		if velocity.y < 0:
-			velocity.y = 0
-	
-	# To make something interactable, make sure it's a collision object (can be body or area),
-	# make sure it's on collision layer 2, and make sure it has a function called 'interact()'
-	if Input.is_action_just_pressed("interact"):
-		if is_on_floor() and not interacting:
-			interact()
-	
-	move_and_slide()
-	
+	#Calculate grapple if grappling
+	if (grappling):
+		calculate_grapple()
+		
+	move_and_slide()	
 	update_sprite()
 
+
+func calculate_grapple():
+	var newDelta = grappleTarget - position
+	if (grappleDelta != Vector2(0, 0) and (sign(newDelta.x) != sign(grappleDelta.x) or sign(newDelta.y) != sign(grappleDelta.y))):
+		grappling = false
+		velocity = Vector2(0, 0)
+		grappleDelta = Vector2(0, 0)
+		return
+	
+	grappleDelta = newDelta
+	var grappleAmount = grappleDelta.normalized() * grapple_accel
+	velocity += grappleAmount;
 
 func update_sprite():
 	var input = Input.get_axis("move_left", "move_right")

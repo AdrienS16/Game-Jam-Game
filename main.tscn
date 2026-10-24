@@ -22,6 +22,7 @@ followSpeed = 3.0
 
 [node name="Player" parent="." unique_id=1804839302 instance=ExtResource("3_h2yge")]
 position = Vector2(0, -7)
+grapple_accel = 11.18
 
 [node name="Lever" parent="." unique_id=276326407 instance=ExtResource("4_1bvp3")]
 position = Vector2(148, 4)
