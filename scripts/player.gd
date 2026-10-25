@@ -5,7 +5,7 @@ class_name Player extends CharacterBody2D
 @export var jump_speed := 160.0
 @export var wall_jump_speed := 80.0
 @export var wall_slide_speed := 50.0;
-@export var grapple_accel := 10.0
+@export var grapple_accel := 20.0
 
 var facing_right = false
 var interacting = false

@@ -12,7 +12,6 @@ radius = 4.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1263074659 groups=["player"]]
 script = ExtResource("1_g2els")
-grapple_accel = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497930112]
 shape = SubResource("CapsuleShape2D_1bvp3")
