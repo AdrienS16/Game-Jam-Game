@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dg2nl6hm8tsb5"]
+
+[ext_resource type="Texture2D" uid="uid://bnq8qeyrsmtej" path="res://assets/art_atlas.png" id="1_f50pn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nps2w"]
+size = Vector2(4, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85p78"]
+size = Vector2(11, 12)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2136230478]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=271196945]
+texture_filter = 1
+texture = ExtResource("1_f50pn")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=815194379]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_nps2w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=144178779]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1948852856]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_85p78")
+
+[node name="leftray" type="RayCast2D" parent="." unique_id=1571422196]
+position = Vector2(-7, 6)
+target_position = Vector2(0, 5)
+hit_from_inside = true
+
+[node name="rightray" type="RayCast2D" parent="." unique_id=1457353905]
+position = Vector2(7, 6)
+target_position = Vector2(0, 5)
+hit_from_inside = true
+
+[node name="leftwallray" type="RayCast2D" parent="." unique_id=646630125]
+position = Vector2(-7, 2)
+target_position = Vector2(-2, 0)
+
+[node name="rightwallray" type="RayCast2D" parent="." unique_id=606727166]
+position = Vector2(7, 2)
+target_position = Vector2(2, 0)
