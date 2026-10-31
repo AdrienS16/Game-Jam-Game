@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4hq1g7taj6w8"]
 
-[ext_resource type="Script" uid="uid://p6xqw8gkwivw" path="res://enemies.gd" id="1_g5tt5"]
+[ext_resource type="Script" uid="uid://p6xqw8gkwivw" path="res://scripts/enemies.gd" id="1_g5tt5"]
 [ext_resource type="Texture2D" uid="uid://bnq8qeyrsmtej" path="res://assets/art_atlas.png" id="1_gu34h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nps2w"]

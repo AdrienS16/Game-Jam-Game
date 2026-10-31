@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c6y3rux7itxup"]
+
+[ext_resource type="Script" uid="uid://dr5c872cb3ak6" path="res://scripts/light.gd" id="1_2e2gu"]
+[ext_resource type="Texture2D" uid="uid://66g7w1anv6op" path="res://assets/light.png" id="1_24oxn"]
+
+[node name="Light" type="Node2D" unique_id=754028399]
+script = ExtResource("1_2e2gu")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=399077931]
+z_index = -1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_24oxn")
+hframes = 2

@@ -29,3 +29,8 @@ position = Vector2(0, -1)
 texture = ExtResource("2_qhqgy")
 hframes = 8
 vframes = 4
+
+[node name="Grapple" type="Line2D" parent="." unique_id=709756814]
+z_index = -2
+width = 1.0
+default_color = Color(1, 0.8725, 0.14999998, 1)
