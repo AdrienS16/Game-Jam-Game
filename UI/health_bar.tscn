@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cungrbqsaooum"]
+
+[ext_resource type="Texture2D" uid="uid://jhregwwa81bo" path="res://UI/battery-gague@4x.png" id="1_6f3ms"]
+[ext_resource type="Script" uid="uid://7twrsdgkcu1w" path="res://UI/health_bar.gd" id="2_0yf5l"]
+
+[node name="HealthBar" type="TextureProgressBar" unique_id=28300784]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-80, 16)
+offset_transform_scale = Vector2(0.35, 0.35)
+offset_transform_pivot_ratio = Vector2(0, 0)
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("1_6f3ms")
+texture_progress = ExtResource("1_6f3ms")
+script = ExtResource("2_0yf5l")

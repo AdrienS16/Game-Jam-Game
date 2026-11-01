@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cw4e1hbpbr28w"]
 
 [ext_resource type="Script" uid="uid://1kdkfe3h6xph" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://y88jlqltre2h" path="res://assets/player.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://rf3c5yvukqf5" path="res://assets/Grapple_Bot_Sheet.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 3.0
@@ -26,9 +26,10 @@ shape = SubResource("CircleShape2D_g2els")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=628082236]
 position = Vector2(0, -1)
-texture = ExtResource("2_qhqgy")
-hframes = 8
-vframes = 4
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_g2els")
+hframes = 11
+vframes = 8
 
 [node name="Grapple" type="Line2D" parent="." unique_id=709756814]
 z_index = -2

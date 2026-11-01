@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Lightning Game Jam template"
-run/main_scene="uid://jvymi5v70i5"
+run/main_scene="uid://7lf6w016tnia"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

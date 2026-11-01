@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://7lf6w016tnia"]
+
+[ext_resource type="Script" uid="uid://cniwa6ua7fmxh" path="res://scripts/TitleScreen.gd" id="1_v6p8y"]
+
+[node name="Title Screen" type="Control" unique_id=192765975]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start Button" type="Button" parent="." unique_id=1927817043]
+layout_mode = 0
+offset_left = 863.0
+offset_top = 565.0
+offset_right = 1028.0
+offset_bottom = 653.0
+theme_override_font_sizes/font_size = 40
+text = "Start"
+script = ExtResource("1_v6p8y")
+
+[node name="Leave Button" type="Button" parent="." unique_id=1646105525]
+layout_mode = 0
+offset_left = 863.0
+offset_top = 678.0
+offset_right = 1028.0
+offset_bottom = 766.0
+theme_override_font_sizes/font_size = 40
+text = "Leave
+
+"
+script = ExtResource("1_v6p8y")
+
+[node name="Label" type="Label" parent="." unique_id=157166688]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 331.0
+offset_right = 1207.0
+offset_bottom = 536.0
+theme_override_font_sizes/font_size = 150
+text = "DECAY"
+
+[connection signal="pressed" from="Start Button" to="Start Button" method="_on_pressed"]
+[connection signal="pressed" from="Leave Button" to="Start Button" method="_on_leave_button_pressed"]

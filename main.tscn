@@ -1,0 +1,114 @@
+[gd_scene format=4 uid="uid://jvymi5v70i5"]
+
+[ext_resource type="TileSet" uid="uid://dy5tft8qthgmr" path="res://assets/tileset.tres" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://prvchyfe0cwu" path="res://scripts/camera_follow.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cw4e1hbpbr28w" path="res://scenes/player.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://3r0jymdyx8yn" path="res://scenes/lever.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dxrgjfe840k4r" path="res://scenes/sliding_door.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://lawscq4ipyf2" path="res://scenes/door.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://b4hq1g7taj6w8" path="res://enemies.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://cungrbqsaooum" path="res://UI/health_bar.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://c6y3rux7itxup" path="res://scenes/light.tscn" id="8_efxa6"]
+[ext_resource type="Script" uid="uid://8ncho3ivkfwc" path="res://label.gd" id="9_kek77"]
+[ext_resource type="Script" uid="uid://cj30sryu02pvk" path="res://pause_menu.gd" id="10_4c57u"]
+
+[node name="Node2D" type="Node2D" unique_id=697596494]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1013646013]
+tile_map_data = PackedByteArray("AAD8/wAAAAACAAEAAAD8/wEAAAADAAMAAAD8/wIAAAADAAMAAAD9/wIAAAADAAMAAAD+/wIAAAADAAMAAAD//wIAAAADAAMAAAAAAAIAAAADAAMAAAABAAIAAAADAAMAAAACAAIAAAADAAMAAAADAAIAAAADAAMAAAADAAEAAAADAAMAAAACAAEAAAADAAMAAAACAAAAAAACAAMAAAADAAAAAAAAAAMAAAABAAAAAAACAAMAAAAAAAAAAAACAAMAAAD//wAAAAACAAMAAAD+/wAAAAACAAMAAAD9/wAAAAACAAMAAAD9/wEAAAADAAMAAAD+/wEAAAADAAMAAAD//wEAAAADAAMAAAAAAAEAAAADAAMAAAABAAEAAAADAAMAAAD7/wEAAAACAAMAAAD7/wIAAAADAAMAAAD6/wIAAAADAAMAAAD5/wIAAAADAAMAAAD5/wEAAAACAAMAAAD6/wEAAAACAAMAAAAEAAEAAAACAAMAAAAFAAEAAAACAAMAAAAGAAEAAAACAAMAAAAGAAIAAAADAAMAAAAFAAIAAAADAAMAAAAEAAIAAAADAAMAAAAFAPz/AAACAAEAAAAGAP3/AAADAAIAAAAFAP3/AAADAAIAAAAGAPz/AAACAAMAAAAEAP3/AAACAAAAAAD5//z/AAACAAMAAAD5//3/AAADAAIAAAD6//3/AAADAAIAAAD7//3/AAAAAAIAAAD6//z/AAAAAAMAAAABAPr/AAAAAAIAAAAAAPr/AAADAAIAAAD///r/AAADAAIAAAD+//r/AAACAAAAAAD///n/AAACAAEAAAAAAPn/AAAAAAMAAAAHAP3/AAABAAIAAAAHAAIAAAADAAMAAAD4/wIAAAADAAMAAAD4//3/AAADAAAAAAD3/wIAAAADAAMAAAD2/wIAAAADAAMAAAD1/wIAAAADAAMAAAD0/wIAAAADAAMAAADz/wIAAAACAAIAAADy/wIAAAACAAIAAADx/wIAAAACAAIAAAD0/wMAAAADAAAAAAD1/wMAAAADAAIAAAD2/wMAAAADAAIAAAD3/wMAAAADAAIAAAD4/wMAAAADAAIAAAD5/wMAAAADAAIAAAD6/wMAAAADAAIAAAD7/wMAAAADAAIAAAD8/wMAAAADAAMAAAD9/wMAAAADAAMAAAD+/wMAAAADAAMAAAD//wMAAAADAAMAAAAAAAMAAAADAAMAAAAFAAMAAAADAAIAAAAGAAMAAAADAAIAAAAHAAMAAAADAAIAAAAIAAMAAAADAAIAAAAJAAMAAAADAAIAAAAKAAMAAAADAAIAAAAJAAIAAAADAAMAAAAIAAIAAAADAAMAAAAKAAIAAAADAAMAAAALAAIAAAADAAMAAAALAAMAAAABAAIAAAAMAAIAAAACAAIAAAANAAIAAAACAAIAAAAOAAIAAAACAAIAAAACAAMAAAADAAMAAAADAAMAAAADAAMAAAAEAAMAAAADAAIAAAABAAMAAAADAAMAAAD4/wEAAAACAAMAAAD3/wEAAAACAAMAAAD2/wEAAAACAAMAAAD1/wEAAAACAAMAAAD0/wEAAAACAAEAAADw/wIAAAACAAIAAADv/wIAAAACAAIAAADs/wIAAAACAAIAAADt/wIAAAACAAIAAADu/wIAAAACAAIAAAAHAAEAAAACAAMAAAAIAAEAAAACAAMAAAAJAAEAAAACAAMAAAAKAAEAAAACAAMAAAALAAEAAAAAAAMAAAAPAAIAAAACAAIAAAAQAAIAAAACAAIAAAARAAIAAAACAAIAAAASAAIAAAACAAIAAAATAAIAAAACAAIAAAD9/wQAAAADAAIAAAD8/wQAAAADAAAAAAD+/wQAAAADAAIAAAD//wQAAAADAAIAAAAAAAQAAAADAAIAAAABAAQAAAADAAIAAAACAAQAAAADAAIAAAADAAQAAAABAAIAAAAUAAIAAAACAAIAAAAUAP//AAABAAAAAAAUAP7/AAABAAEAAAAUAP3/AAABAAEAAADr/wIAAAACAAIAAADr////AAABAAAAAADr//7/AAABAAEAAADr//3/AAAAAAMAAAAUAPz/AAADAAMAAAATAPz/AAADAAAAAAATAPv/AAADAAEAAAATAPr/AAADAAEAAAATAPn/AAADAAEAAAAUAPn/AAADAAMAAAAUAPj/AAADAAMAAAAVAPj/AAABAAMAAAAVAPn/AAABAAMAAAAVAPr/AAABAAMAAAAVAPv/AAABAAMAAAAVAPz/AAABAAIAAAAUAPv/AAADAAMAAAAUAPr/AAADAAMAAAATAPj/AAADAAEAAAATAPf/AAADAAEAAAATAPb/AAADAAEAAAATAPX/AAADAAEAAAATAPT/AAADAAEAAAAUAPT/AAADAAMAAAAUAPP/AAADAAMAAAATAPP/AAADAAEAAAATAPL/AAADAAEAAAATAPH/AAADAAEAAAAUAPH/AAADAAMAAAAVAPL/AAABAAMAAAAVAPP/AAABAAMAAAAVAPT/AAABAAMAAAAVAPX/AAABAAMAAAAVAPb/AAABAAMAAAAVAPf/AAABAAMAAAAUAPf/AAADAAMAAAAUAPb/AAADAAMAAAAUAPX/AAADAAMAAAAUAPL/AAADAAMAAAAVAPH/AAABAAMAAAATAPD/AAADAAEAAAATAO//AAADAAEAAAATAO7/AAADAAEAAAATAO3/AAADAAEAAAATAOz/AAACAAEAAAAUAOz/AAACAAMAAAAVAOz/AAAAAAMAAAAVAO3/AAABAAMAAAAVAO7/AAABAAMAAAAVAO//AAABAAMAAAAVAPD/AAABAAMAAAAUAPD/AAADAAMAAAAUAO//AAADAAMAAAAUAO7/AAADAAMAAAAUAO3/AAADAAMAAAAVAAIAAAACAAIAAAAWAAIAAAACAAIAAAAXAAIAAAACAAIAAAAYAAIAAAACAAIAAAAaAAIAAAACAAIAAAAZAAIAAAACAAIAAAAbAAIAAAACAAIAAAAcAAIAAAACAAIAAAAdAAIAAAACAAIAAAAeAAIAAAACAAIAAAAfAAIAAAACAAIAAAAgAAIAAAACAAIAAAAhAAIAAAABAAIAAAAhAAEAAAABAAEAAAAhAAAAAAABAAEAAAAhAP//AAABAAEAAAAhAP7/AAABAAEAAAAhAP3/AAABAAEAAAAhAPz/AAABAAEAAAD4//z/AAACAAEAAAAHAPz/AAAAAAMAAADq/wIAAAACAAIAAADp/wIAAAACAAIAAADo/wIAAAACAAIAAADn/wIAAAACAAIAAADm/wIAAAACAAIAAADl/wIAAAACAAIAAADk/wIAAAADAAAAAADk/wEAAAABAAEAAADk/wAAAAABAAEAAADk////AAABAAEAAADk//7/AAABAAEAAADk//3/AAACAAEAAADl//3/AAACAAIAAADm//3/AAACAAIAAADn//3/AAACAAIAAADo//3/AAACAAIAAADp//3/AAACAAIAAADq//3/AAACAAIAAAAdAP7/AAABAAAAAAAdAP3/AAABAAEAAAAdAPz/AAABAAEAAAAdAPv/AAABAAEAAAAdAPr/AAABAAEAAAAdAPn/AAABAAEAAAAdAPj/AAABAAEAAAAdAPf/AAABAAEAAAAdAPb/AAABAAEAAAAdAPX/AAAAAAMAAAAhAPX/AAACAAEAAAAhAPv/AAABAAEAAAAhAPr/AAABAAEAAAAhAPn/AAABAAEAAAAhAPj/AAABAAEAAAAhAPf/AAABAAEAAAAhAPb/AAABAAEAAAAiAPX/AAACAAIAAAAjAPX/AAACAAIAAAAkAPX/AAACAAIAAAAlAPX/AAACAAIAAAAmAPX/AAAAAAIAAAAcAPX/AAACAAIAAAAbAPX/AAACAAIAAAAaAPX/AAACAAIAAAAZAPX/AAACAAIAAAAYAPX/AAACAAAAAAA=")
+tile_set = ExtResource("1_ig7tw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1519289228 node_paths=PackedStringArray("followTarget")]
+position = Vector2(0, -7)
+zoom = Vector2(8, 8)
+script = ExtResource("2_0xm2m")
+followTarget = NodePath("../Player")
+followSpeed = 3.0
+
+[node name="Player" parent="." unique_id=1804839302 instance=ExtResource("3_h2yge")]
+position = Vector2(0, -6)
+collision_layer = 2
+wall_slide_speed = 30.0
+
+[node name="Lever" parent="." unique_id=276326407 instance=ExtResource("4_1bvp3")]
+position = Vector2(148, 4)
+toggle = true
+
+[node name="SlidingDoor" parent="." unique_id=67307933 instance=ExtResource("5_lquwl")]
+position = Vector2(164, 8)
+
+[node name="Door" parent="." unique_id=1449446211 instance=ExtResource("6_7mycd")]
+position = Vector2(-164, 8)
+
+[node name="Enemy" parent="." unique_id=2136230478 instance=ExtResource("7_272bh")]
+position = Vector2(-65, 1)
+
+[node name="Light" parent="." unique_id=754028399 instance=ExtResource("8_efxa6")]
+position = Vector2(79, -58)
+
+[node name="Light2" parent="." unique_id=42832538 instance=ExtResource("8_efxa6")]
+position = Vector2(36, -85)
+
+[node name="InGameUI" type="CanvasLayer" parent="." unique_id=1482342240]
+
+[node name="HealthBar" parent="InGameUI" unique_id=28300784 instance=ExtResource("8_5vw27")]
+
+[node name="Label" type="Label" parent="InGameUI" unique_id=1946018994]
+offset_left = 1489.0
+offset_top = 32.0
+offset_right = 1584.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 37
+script = ExtResource("9_kek77")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=512890945]
+layer = 2
+visible = false
+script = ExtResource("10_4c57u")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=115266456]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu" unique_id=68366883]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Pause Label" type="Label" parent="PauseMenu/VBoxContainer" unique_id=774890361]
+layout_mode = 2
+theme_override_font_sizes/font_size = 77
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/VBoxContainer" unique_id=166826343]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="PauseMenu/VBoxContainer" unique_id=373811996]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="TitleButton" type="Button" parent="PauseMenu/VBoxContainer" unique_id=298395587]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Title Screen"
+
+[connection signal="unused" from="Lever" to="SlidingDoor" method="close_door"]
+[connection signal="used" from="Lever" to="SlidingDoor" method="open_door"]

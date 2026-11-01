@@ -8,6 +8,7 @@ class_name Player extends CharacterBody2D
 @export var grapple_final_velocity := 175.0
 @export var grapple_initial_velocity := 50.0
 @export var grapple_max_reach := 75
+@export var max_health := 100
 
 var facing_right = false
 var interacting = false
@@ -36,7 +37,17 @@ var grappleStart
 
 var potentialGrappleLight: Node2D = null
 
+signal health_changed(new_health: int)
+var health := max_health
+var drain_timer := 0.0
+
 func _process(delta: float) -> void:
+	drain_timer += delta
+	if drain_timer >= 1.5:
+		drain_timer = 0.0
+		take_damage(1)
+	
+	
 	potentialGrappleLight = find_closest_light(get_global_mouse_position())
 	if (potentialGrappleLight != null):
 		potentialGrappleLight.LightUp()
@@ -192,27 +203,24 @@ func handle_stage_grapple(delta: float, inputAxis: float):
 	
 	return true
 
-func update_sprite():
-	# Update sprite
-	if input > 0:
-		facing_right = true
-	if input < 0:
-		facing_right = false
-	
+func update_sprite() -> void:
+	if abs(velocity.x) > 0:
+		facing_right = velocity.x > 0
+	$Sprite.flip_h = !facing_right
+	if currentStage == Stage.WALL:
+		$Sprite.frame_coords = Vector2i(9, 7)
+	elif currentStage == Stage.WALLJUMP:
+		$Sprite.frame_coords = Vector2i(10, 4)
+	elif not is_on_floor():
+		$Sprite.frame_coords = Vector2i(10, 4)
+	elif abs(velocity.x) > 0:
+		$Sprite.frame_coords = Vector2i(int(Time.get_ticks_msec() / 33.0) % 11, 5)
+	elif interacting:
+		$Sprite.frame_coords = Vector2i(6, 0)
+	else:
+		$Sprite.frame_coords = Vector2i(0, 2)
 	$InteractBox.position.x = 6 if facing_right else -6
 	
-	$Sprite.frame_coords.y = 2 if facing_right else 0
-	if not is_on_floor():
-		$Sprite.frame_coords.y += 1
-		$Sprite.frame_coords.x = 1 if velocity.y > 0 else 0
-	elif abs(velocity.x) > 0:
-		var time_elapsed = Time.get_ticks_msec() / 1000.0
-		$Sprite.frame_coords.x = int(time_elapsed * 10) % 6 + 1
-	elif interacting:
-		$Sprite.frame_coords.x = 7
-	else:
-		$Sprite.frame_coords.x = 0
-
 func interact():
 	for target in $InteractBox.get_overlapping_bodies():
 		if target.has_method("interact"):
@@ -242,3 +250,9 @@ func apply_grapple_visual(pos1: Vector2, pos2: Vector2):
 
 func disable_grapple_visual():
 	$Grapple.clear_points()
+	
+func take_damage(amount: int) -> void:
+	health -= amount
+	health_changed.emit(health)
+	if health <= 0:
+		get_tree().call_deferred("reload_current_scene")
