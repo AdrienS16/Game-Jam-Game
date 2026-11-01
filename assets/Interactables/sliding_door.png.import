@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcirnstq38pix"
-path="res://.godot/imported/lever.png-d901cd324f468f785dfde44d4bf3b4e8.ctex"
+uid="uid://qiistv4juv5o"
+path="res://.godot/imported/sliding_door.png-c0f98ea3adbd1c383b3b1454ceba263c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lever.png"
-dest_files=["res://.godot/imported/lever.png-d901cd324f468f785dfde44d4bf3b4e8.ctex"]
+source_file="res://assets/Interactables/sliding_door.png"
+dest_files=["res://.godot/imported/sliding_door.png-c0f98ea3adbd1c383b3b1454ceba263c.ctex"]
 
 [params]
 

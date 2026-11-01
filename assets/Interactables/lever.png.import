@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jhregwwa81bo"
-path="res://.godot/imported/battery-gague@4x.png-7d39674a4820d406f48d13eaa4799ab8.ctex"
+uid="uid://dcirnstq38pix"
+path="res://.godot/imported/lever.png-fa0c142cf3c01dea182a6702cdbd2478.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/battery-gague@4x.png"
-dest_files=["res://.godot/imported/battery-gague@4x.png-7d39674a4820d406f48d13eaa4799ab8.ctex"]
+source_file="res://assets/Interactables/lever.png"
+dest_files=["res://.godot/imported/lever.png-fa0c142cf3c01dea182a6702cdbd2478.ctex"]
 
 [params]
 

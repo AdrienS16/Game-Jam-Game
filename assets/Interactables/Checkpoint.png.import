@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qiistv4juv5o"
-path="res://.godot/imported/sliding_door.png-b43a4e3f024e92cf71d602d6626e1e02.ctex"
+uid="uid://c27evi8u6pfsf"
+path="res://.godot/imported/Checkpoint.png-1de7ea97384da2ddf2bdc4a93767a3c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sliding_door.png"
-dest_files=["res://.godot/imported/sliding_door.png-b43a4e3f024e92cf71d602d6626e1e02.ctex"]
+source_file="res://assets/Interactables/Checkpoint.png"
+dest_files=["res://.godot/imported/Checkpoint.png-1de7ea97384da2ddf2bdc4a93767a3c3.ctex"]
 
 [params]
 

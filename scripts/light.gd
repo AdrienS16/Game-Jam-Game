@@ -7,9 +7,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if litUp:
-		$Sprite.frame_coords.x = 1
+		$Sprite.frame_coords.y = 1
 	else:
-		$Sprite.frame_coords.x = 0
+		$Sprite.frame_coords.y = 0
 	litUp = false
 
 func LightUp():

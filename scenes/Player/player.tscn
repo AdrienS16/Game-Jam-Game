@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cw4e1hbpbr28w"]
 
 [ext_resource type="Script" uid="uid://1kdkfe3h6xph" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://rf3c5yvukqf5" path="res://assets/Grapple_Bot_Sheet.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://rf3c5yvukqf5" path="res://assets/Player/Grapple_Bot_Sheet.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 3.0
@@ -12,6 +12,7 @@ radius = 4.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1263074659 groups=["player"]]
 script = ExtResource("1_g2els")
+grapple_initial_velocity = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497930112]
 shape = SubResource("CapsuleShape2D_1bvp3")
@@ -28,6 +29,7 @@ shape = SubResource("CircleShape2D_g2els")
 position = Vector2(0, -1)
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_g2els")
+flip_h = true
 hframes = 11
 vframes = 8
 

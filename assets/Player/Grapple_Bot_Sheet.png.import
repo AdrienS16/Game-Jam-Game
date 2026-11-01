@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uh8msdn5275k"
-path="res://.godot/imported/door.png-b71998044d513d047c9b0091ee4a07ff.ctex"
+uid="uid://rf3c5yvukqf5"
+path="res://.godot/imported/Grapple_Bot_Sheet.png-1ef19e97489f9a7a6fb75d81696869b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/door.png"
-dest_files=["res://.godot/imported/door.png-b71998044d513d047c9b0091ee4a07ff.ctex"]
+source_file="res://assets/Player/Grapple_Bot_Sheet.png"
+dest_files=["res://.godot/imported/Grapple_Bot_Sheet.png-1ef19e97489f9a7a6fb75d81696869b4.ctex"]
 
 [params]
 
