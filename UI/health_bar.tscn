@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cungrbqsaooum"]
 
-[ext_resource type="Texture2D" uid="uid://jhregwwa81bo" path="res://assets/Player/battery-gague@4x.png" id="1_6f3ms"]
+[ext_resource type="Texture2D" uid="uid://bwq6q3ubhrv8h" path="res://assets/battery-gauge@4x.png" id="1_tqipt"]
 [ext_resource type="Script" uid="uid://7twrsdgkcu1w" path="res://UI/health_bar.gd" id="2_0yf5l"]
+[ext_resource type="Texture2D" uid="uid://bdfh15sjnd88o" path="res://assets/battery-gauge-fill@4x.png" id="2_qh381"]
 
 [node name="HealthBar" type="TextureProgressBar" unique_id=28300784]
 anchors_preset = 1
@@ -14,6 +15,6 @@ offset_transform_scale = Vector2(0.35, 0.35)
 offset_transform_pivot_ratio = Vector2(0, 0)
 value = 100.0
 fill_mode = 3
-texture_under = ExtResource("1_6f3ms")
-texture_progress = ExtResource("1_6f3ms")
+texture_over = ExtResource("1_tqipt")
+texture_progress = ExtResource("2_qh381")
 script = ExtResource("2_0yf5l")
