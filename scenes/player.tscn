@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://1kdkfe3h6xph" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://rf3c5yvukqf5" path="res://assets/Grapple_Bot_Sheet.png" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://dvhxeg7neeq6u" path="res://assets/Sounds/walk.mp3" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://ccsdmelo2d5ke" path="res://assets/Sounds/grapple.mp3" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 3.0
@@ -35,3 +37,11 @@ vframes = 8
 z_index = -2
 width = 1.0
 default_color = Color(1, 0.8725, 0.14999998, 1)
+
+[node name="WalkPlayer" type="AudioStreamPlayer" parent="." unique_id=1920402906]
+stream = ExtResource("3_qhqgy")
+volume_db = -10.0
+
+[node name="GrapplePlayer" type="AudioStreamPlayer" parent="." unique_id=1936862952]
+stream = ExtResource("4_dqkch")
+volume_db = -10.0

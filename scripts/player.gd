@@ -41,11 +41,15 @@ signal health_changed(new_health: int)
 var health := max_health
 var drain_timer := 0.0
 
+var audioTimerWalk = 0
+
 func _process(delta: float) -> void:
 	drain_timer += delta
 	if drain_timer >= 1.5:
 		drain_timer = 0.0
 		take_damage(1)
+		
+	update_audio_timers(delta)
 	
 	
 	potentialGrappleLight = find_closest_light(get_global_mouse_position())
@@ -60,7 +64,7 @@ func _process(delta: float) -> void:
 	## make sure it's on collision layer 2, and make sure it has a function called 'interact()'
 	if Input.is_action_just_pressed("interact"):
 		if is_on_floor() and not interacting:
-			interact()
+			interacte()
 		
 	update_sprite()
 		
@@ -93,8 +97,10 @@ func calculate_movement(delta: float):
 	elif (lastStage == Stage.FALL):
 		if (is_on_floor()):
 			currentStage = Stage.GROUND
+			try_play_audio("land")
 		elif (is_on_wall()):
 			currentStage = Stage.WALL
+			try_play_audio("land")
 		elif (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && potentialGrappleLight != null && canGrapple):
 			currentStage = Stage.GRAPPLE
 			
@@ -153,6 +159,8 @@ func calculate_movement(delta: float):
 
 func handle_stage_ground(delta: float, inputAxis: float):
 	velocity.x = inputAxis * speed
+	if (inputAxis != 0):
+		try_play_audio("walk")
 	return true
 	
 func handle_stage_jump(delta: float, inputAxis: float):
@@ -186,6 +194,7 @@ func handle_stage_grapple(delta: float, inputAxis: float):
 	if (lastStage != Stage.GRAPPLE):
 		grappleTarget = potentialGrappleLight.position;
 		grappleStart = position
+		try_play_audio("grapple")
 	var currentDirection = (grappleTarget - position).normalized()
 	var percent = ((position - grappleStart).length() / (grappleTarget - grappleStart).length())
 	
@@ -221,7 +230,7 @@ func update_sprite() -> void:
 		$Sprite.frame_coords = Vector2i(0, 2)
 	$InteractBox.position.x = 6 if facing_right else -6
 	
-func interact():
+func interacte():
 	for target in $InteractBox.get_overlapping_bodies():
 		if target.has_method("interact"):
 			interacting = true
@@ -256,3 +265,18 @@ func take_damage(amount: int) -> void:
 	health_changed.emit(health)
 	if health <= 0:
 		get_tree().call_deferred("reload_current_scene")
+
+func update_audio_timers(delta: float):
+	audioTimerWalk = max(audioTimerWalk - delta, 0)
+	
+func try_play_audio(name: String):
+	if (name == "walk" && audioTimerWalk == 0):
+		$WalkPlayer.pitch_scale = randf_range(0.85, 1)
+		$WalkPlayer.play()
+		audioTimerWalk = 0.4
+	elif (name == "land"):
+		$WalkPlayer.pitch_scale = 0.75
+		$WalkPlayer.play()
+	elif (name == "grapple"):
+		$GrapplePlayer.pitch_scale = 1
+		$GrapplePlayer.play()
