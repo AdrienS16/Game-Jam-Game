@@ -1,16 +1,17 @@
-[gd_scene format=4 uid="uid://jvymi5v70i5"]
+[gd_scene format=4 uid="uid://8i6nhxf274f6"]
 
 [ext_resource type="TileSet" uid="uid://dy5tft8qthgmr" path="res://assets/tileset.tres" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://prvchyfe0cwu" path="res://scripts/camera_follow.gd" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cw4e1hbpbr28w" path="res://scenes/player.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://3r0jymdyx8yn" path="res://scenes/lever.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://dxrgjfe840k4r" path="res://scenes/sliding_door.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://lawscq4ipyf2" path="res://scenes/door.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cw4e1hbpbr28w" path="res://scenes/Player/player.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://3r0jymdyx8yn" path="res://scenes/Interactables/lever.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dxrgjfe840k4r" path="res://scenes/Interactables/sliding_door.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://lawscq4ipyf2" path="res://scenes/Interactables/door.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://b4hq1g7taj6w8" path="res://enemies.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://cungrbqsaooum" path="res://UI/health_bar.tscn" id="8_5vw27"]
-[ext_resource type="PackedScene" uid="uid://c6y3rux7itxup" path="res://scenes/light.tscn" id="8_efxa6"]
-[ext_resource type="Script" uid="uid://8ncho3ivkfwc" path="res://label.gd" id="9_kek77"]
-[ext_resource type="Script" uid="uid://cj30sryu02pvk" path="res://pause_menu.gd" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://c6y3rux7itxup" path="res://scenes/Interactables/light.tscn" id="8_efxa6"]
+[ext_resource type="Script" uid="uid://8ncho3ivkfwc" path="res://scripts/label.gd" id="9_kek77"]
+[ext_resource type="Script" uid="uid://cj30sryu02pvk" path="res://scripts/pause_menu.gd" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://brfipgoin0n6e" path="res://scenes/Evils/spike.tscn" id="12_dg77c"]
 
 [node name="Node2D" type="Node2D" unique_id=697596494]
 
@@ -109,6 +110,18 @@ text = "Restart"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Title Screen"
+
+[node name="Spike" parent="." unique_id=830759780 instance=ExtResource("12_dg77c")]
+position = Vector2(100.00002, 12)
+scale = Vector2(0.88888913, 0.8)
+
+[node name="Spike2" parent="." unique_id=571429637 instance=ExtResource("12_dg77c")]
+position = Vector2(107.99999, 12)
+scale = Vector2(0.88888913, 0.8)
+
+[node name="Spike3" parent="." unique_id=1763308661 instance=ExtResource("12_dg77c")]
+position = Vector2(116, 12)
+scale = Vector2(0.88888913, 0.8)
 
 [connection signal="unused" from="Lever" to="SlidingDoor" method="close_door"]
 [connection signal="used" from="Lever" to="SlidingDoor" method="open_door"]

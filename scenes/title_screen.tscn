@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7lf6w016tnia"]
 
-[ext_resource type="Script" uid="uid://cniwa6ua7fmxh" path="res://scripts/TitleScreen.gd" id="1_v6p8y"]
+[ext_resource type="Script" uid="uid://cniwa6ua7fmxh" path="res://scripts/TitleScreen.gd" id="1_fgkus"]
 
 [node name="Title Screen" type="Control" unique_id=192765975]
 layout_mode = 3
@@ -18,7 +18,7 @@ offset_right = 1028.0
 offset_bottom = 653.0
 theme_override_font_sizes/font_size = 40
 text = "Start"
-script = ExtResource("1_v6p8y")
+script = ExtResource("1_fgkus")
 
 [node name="Leave Button" type="Button" parent="." unique_id=1646105525]
 layout_mode = 0
@@ -30,7 +30,7 @@ theme_override_font_sizes/font_size = 40
 text = "Leave
 
 "
-script = ExtResource("1_v6p8y")
+script = ExtResource("1_fgkus")
 
 [node name="Label" type="Label" parent="." unique_id=157166688]
 layout_mode = 0

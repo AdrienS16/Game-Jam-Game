@@ -32,4 +32,4 @@ func _wait_dir_change(desired_dir: int):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player_node:
-		get_tree().call_deferred("reload_current_scene")
+		player_node.take_damage(25)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwq6q3ubhrv8h"
-path="res://.godot/imported/battery-gauge@4x.png-c3bf0d7491892c8f51d7e1554043c654.ctex"
+uid="uid://bdfh15sjnd88o"
+path="res://.godot/imported/battery-gauge-fill@4x.png-51d1a4acee594d9a6f3685169fac7c21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/battery-gauge@4x.png"
-dest_files=["res://.godot/imported/battery-gauge@4x.png-c3bf0d7491892c8f51d7e1554043c654.ctex"]
+source_file="res://UI/battery-gauge-fill@4x.png"
+dest_files=["res://.godot/imported/battery-gauge-fill@4x.png-51d1a4acee594d9a6f3685169fac7c21.ctex"]
 
 [params]
 
