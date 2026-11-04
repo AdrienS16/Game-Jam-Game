@@ -10,7 +10,7 @@ radius = 3.0
 height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
-radius = 4.0
+radius = 6.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1263074659 groups=["player"]]
 script = ExtResource("1_g2els")
@@ -19,7 +19,7 @@ script = ExtResource("1_g2els")
 shape = SubResource("CapsuleShape2D_1bvp3")
 
 [node name="InteractBox" type="Area2D" parent="." unique_id=883114772]
-position = Vector2(-4, -1)
+position = Vector2(0, -1)
 collision_layer = 0
 collision_mask = 2
 

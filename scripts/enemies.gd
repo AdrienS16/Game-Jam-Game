@@ -32,4 +32,7 @@ func _wait_dir_change(desired_dir: int):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player_node:
-		player_node.take_damage(25)
+		if player_node.health >= 25:
+			player_node.take_damage(25)
+		else:
+			player_node.take_damage(player_node.health)

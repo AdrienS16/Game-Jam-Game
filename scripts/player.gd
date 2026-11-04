@@ -9,6 +9,10 @@ class_name Player extends CharacterBody2D
 @export var grapple_initial_velocity := 50.0
 @export var grapple_max_reach := 75
 @export var max_health := 100
+@export var checkpos1 := 0
+@export var checkpos2 := -6
+#The y value of what's considered "out of bounds" - to be changed with level design
+@export var floorbound := 150
 
 var facing_right = false
 var interacting = false
@@ -48,6 +52,10 @@ func _process(delta: float) -> void:
 	if drain_timer >= 1.5:
 		drain_timer = 0.0
 		take_damage(1)
+	
+	#Kill player if out of bounds
+	if position.y > floorbound:
+		take_damage(health)
 		
 	update_audio_timers(delta)
 	
@@ -228,7 +236,8 @@ func update_sprite() -> void:
 		$Sprite.frame_coords = Vector2i(6, 0)
 	else:
 		$Sprite.frame_coords = Vector2i(0, 2)
-	$InteractBox.position.x = 6 if facing_right else -6
+	# I think interact box centered on player is better but you can change it back if you want
+	#$InteractBox.position.x = 6 if facing_right else -6
 	
 func interacte():
 	for target in $InteractBox.get_overlapping_bodies():
@@ -264,7 +273,9 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	health_changed.emit(health)
 	if health <= 0:
-		get_tree().call_deferred("reload_current_scene")
+		#get_tree().call_deferred("reload_current_scene")
+		health = 100
+		position = Vector2(checkpos1, checkpos2)
 
 func update_audio_timers(delta: float):
 	audioTimerWalk = max(audioTimerWalk - delta, 0)

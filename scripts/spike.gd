@@ -8,4 +8,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Checks if hitbox is player's
 	if body == player_node:
 		# Deals 100 damage to player
-		player_node.take_damage(100)
+		player_node.take_damage(player_node.health)
