@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3r0jymdyx8yn" path="res://scenes/Interactables/lever.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dxrgjfe840k4r" path="res://scenes/Interactables/sliding_door.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://lawscq4ipyf2" path="res://scenes/Interactables/door.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://b4hq1g7taj6w8" path="res://enemies.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://b4hq1g7taj6w8" path="res://scenes/Evils/enemies.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://cungrbqsaooum" path="res://UI/health_bar.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c6y3rux7itxup" path="res://scenes/Interactables/light.tscn" id="8_efxa6"]
 [ext_resource type="Script" uid="uid://8ncho3ivkfwc" path="res://scripts/label.gd" id="9_kek77"]
