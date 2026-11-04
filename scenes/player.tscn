@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cw4e1hbpbr28w"]
+
+[ext_resource type="Script" uid="uid://1kdkfe3h6xph" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://rf3c5yvukqf5" path="res://assets/Grapple_Bot_Sheet.png" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://dvhxeg7neeq6u" path="res://assets/Sounds/walk.mp3" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://ccsdmelo2d5ke" path="res://assets/Sounds/grapple.mp3" id="4_dqkch"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
+radius = 3.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 4.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1263074659 groups=["player"]]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497930112]
+shape = SubResource("CapsuleShape2D_1bvp3")
+
+[node name="InteractBox" type="Area2D" parent="." unique_id=883114772]
+position = Vector2(-4, -1)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox" unique_id=2135700740]
+shape = SubResource("CircleShape2D_g2els")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=628082236]
+position = Vector2(0, -1)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_g2els")
+hframes = 11
+vframes = 8
+
+[node name="Grapple" type="Line2D" parent="." unique_id=709756814]
+z_index = -2
+width = 1.0
+default_color = Color(1, 0.8725, 0.14999998, 1)
+
+[node name="WalkPlayer" type="AudioStreamPlayer" parent="." unique_id=1920402906]
+stream = ExtResource("3_qhqgy")
+volume_db = -10.0
+
+[node name="GrapplePlayer" type="AudioStreamPlayer" parent="." unique_id=1936862952]
+stream = ExtResource("4_dqkch")
+volume_db = -10.0
