@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://be001e84wvsg"]
+
+[ext_resource type="Texture2D" uid="uid://c27evi8u6pfsf" path="res://assets/Interactables/Checkpoint.png" id="1_xbghy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f08g"]
+size = Vector2(60, 48)
+
+[node name="Checkpoint" type="Node2D" unique_id=1396824021]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1213069228]
+texture = ExtResource("1_xbghy")
+hframes = 7
+vframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=905598971]
+position = Vector2(0, 38)
+shape = SubResource("RectangleShape2D_7f08g")
