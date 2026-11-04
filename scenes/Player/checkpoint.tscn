@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://be001e84wvsg"]
 
-[ext_resource type="Texture2D" uid="uid://c27evi8u6pfsf" path="res://assets/Interactables/Checkpoint.png" id="1_xbghy"]
+[ext_resource type="Texture2D" uid="uid://c27evi8u6pfsf" path="res://assets/Checkpoint.png" id="1_xbghy"]
+[ext_resource type="Script" uid="uid://dvcfuxblmyksn" path="res://scripts/checkpoint.gd" id="2_benp0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f08g"]
-size = Vector2(60, 48)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhfgf"]
+size = Vector2(60, 65)
 
 [node name="Checkpoint" type="Node2D" unique_id=1396824021]
 
@@ -11,7 +12,14 @@ size = Vector2(60, 48)
 texture = ExtResource("1_xbghy")
 hframes = 7
 vframes = 7
+region_enabled = true
+region_rect = Rect2(0, 0, 896, 896)
+script = ExtResource("2_benp0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=905598971]
-position = Vector2(0, 38)
-shape = SubResource("RectangleShape2D_7f08g")
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=2103043393]
+position = Vector2(0, 29)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=735697142]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_dhfgf")

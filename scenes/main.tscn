@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://8ncho3ivkfwc" path="res://scripts/label.gd" id="9_kek77"]
 [ext_resource type="Script" uid="uid://cj30sryu02pvk" path="res://scripts/pause_menu.gd" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://brfipgoin0n6e" path="res://scenes/Evils/spike.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://be001e84wvsg" path="res://scenes/Player/checkpoint.tscn" id="13_trceg"]
 
 [node name="Node2D" type="Node2D" unique_id=697596494]
 
@@ -122,6 +123,9 @@ scale = Vector2(0.88888913, 0.8)
 [node name="Spike3" parent="." unique_id=1763308661 instance=ExtResource("12_dg77c")]
 position = Vector2(116, 12)
 scale = Vector2(0.88888913, 0.8)
+
+[node name="Checkpoint" parent="." unique_id=1396824021 instance=ExtResource("13_trceg")]
+position = Vector2(65, -56)
 
 [connection signal="unused" from="Lever" to="SlidingDoor" method="close_door"]
 [connection signal="used" from="Lever" to="SlidingDoor" method="open_door"]
