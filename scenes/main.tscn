@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://8i6nhxf274f6"]
+[gd_scene format=4 uid="uid://jvymi5v70i5"]
 
 [ext_resource type="TileSet" uid="uid://dy5tft8qthgmr" path="res://assets/tileset.tres" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://prvchyfe0cwu" path="res://scripts/camera_follow.gd" id="2_0xm2m"]

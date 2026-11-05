@@ -47,6 +47,8 @@ var drain_timer := 0.0
 
 var audioTimerWalk = 0
 
+var currentAnimOffset: float
+
 func _process(delta: float) -> void:
 	drain_timer += delta
 	if drain_timer >= 1.5:
@@ -74,7 +76,7 @@ func _process(delta: float) -> void:
 		if is_on_floor() and not interacting:
 			interacte()
 		
-	update_sprite()
+	update_sprite(delta)
 		
 func calculate_movement(delta: float):
 	lastInput = input
@@ -220,24 +222,63 @@ func handle_stage_grapple(delta: float, inputAxis: float):
 	
 	return true
 
-func update_sprite() -> void:
-	if abs(velocity.x) > 0:
+func update_sprite(delta: float) -> void:
+	var fps30delta = delta * 30
+	
+	if (abs(velocity.x) > 0):
 		facing_right = velocity.x > 0
 	$Sprite.flip_h = !facing_right
-	if currentStage == Stage.WALL:
-		$Sprite.frame_coords = Vector2i(9, 7)
-	elif currentStage == Stage.WALLJUMP:
-		$Sprite.frame_coords = Vector2i(10, 4)
-	elif not is_on_floor():
-		$Sprite.frame_coords = Vector2i(10, 4)
-	elif abs(velocity.x) > 0:
-		$Sprite.frame_coords = Vector2i(int(Time.get_ticks_msec() / 33.0) % 11, 5)
-	elif interacting:
-		$Sprite.frame_coords = Vector2i(6, 0)
+	
+	var currentAnimBase
+	
+	var _jump = 0
+	var _fall = 6
+	var _grapple = 7
+	var _idle = 19
+	var _walljump = 54
+	var _run = 55
+	var _wall = 86
+	
+	if (currentStage == Stage.FALL):
+		currentAnimBase = _fall
+		currentAnimOffset = 0
+	elif (currentStage == Stage.WALL):
+		currentAnimBase = _wall
+		currentAnimOffset = 0
+	elif (currentStage == Stage.WALLJUMP):
+		currentAnimBase = _walljump
+		currentAnimOffset = 0
+	elif (currentStage == Stage.JUMP):
+		currentAnimBase = _jump
+		currentAnimOffset = min(currentAnimOffset + fps30delta, _fall)
+	elif (currentStage == Stage.GRAPPLE):
+		currentAnimBase = _grapple
+		var frameWidth: int = _idle - _grapple
+		currentAnimOffset = fmod(currentAnimOffset + fps30delta, frameWidth)
+	elif (currentStage == Stage.GROUND):
+		if (velocity.x == 0):
+			currentAnimBase = _idle
+		else:
+			currentAnimBase = _run
+		if (abs(velocity.x) > 0):
+			var frameWidth: int = _wall - _run
+			currentAnimOffset = fmod(currentAnimOffset + fps30delta, frameWidth)
+		else:
+			var frameWidth: int = _run - _walljump
+			currentAnimOffset = fmod(currentAnimOffset + fps30delta, frameWidth)
+			
+	if (interacting):
+		jump_to_frame_index(4)
 	else:
-		$Sprite.frame_coords = Vector2i(0, 2)
+		jump_to_frame_index(currentAnimBase + currentAnimOffset)
+	
 	# I think interact box centered on player is better but you can change it back if you want
 	#$InteractBox.position.x = 6 if facing_right else -6
+
+func jump_to_frame_index(index: float):
+	var intIndex: int = floor(index)
+	var pos = Vector2i(intIndex % 11, intIndex / 11)
+	$Sprite.frame_coords = pos
 	
 func interacte():
 	for target in $InteractBox.get_overlapping_bodies():
