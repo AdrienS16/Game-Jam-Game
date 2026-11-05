@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+@onready var spawn: Node2D = $"../Spawn"
+
 @export var gravity := 350.0
 @export var speed := 75.0
 @export var jump_speed := 160.0
@@ -9,12 +11,13 @@ class_name Player extends CharacterBody2D
 @export var grapple_initial_velocity := 50.0
 @export var grapple_max_reach := 75
 @export var max_health := 100
-@export var checkpos1 := 0
-@export var checkpos2 := -6
+@export var checkpos1: float
+@export var checkpos2: float
+@export var pushforce = 100
 #The y value of what's considered "out of bounds" - to be changed with level design
 @export var floorbound := 150
 
-var facing_right = false
+var facing_right = true
 var interacting = false
 
 enum Stage
@@ -47,6 +50,10 @@ var drain_timer := 0.0
 
 var audioTimerWalk = 0
 
+func _ready() -> void:
+	checkpos1 = spawn.position.x
+	checkpos2 = spawn.position.y
+
 func _process(delta: float) -> void:
 	drain_timer += delta
 	if drain_timer >= 1.5:
@@ -56,7 +63,7 @@ func _process(delta: float) -> void:
 	#Kill player if out of bounds
 	if position.y > floorbound:
 		take_damage(health)
-		
+	
 	update_audio_timers(delta)
 	
 	
@@ -169,6 +176,13 @@ func handle_stage_ground(delta: float, inputAxis: float):
 	velocity.x = inputAxis * speed
 	if (inputAxis != 0):
 		try_play_audio("walk")
+		#Collision with block
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider is RigidBody2D:
+				collider.apply_central_impulse(-collision.get_normal() * pushforce)
+		
 	return true
 	
 func handle_stage_jump(delta: float, inputAxis: float):

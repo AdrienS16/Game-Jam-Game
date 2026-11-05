@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 	if activating == true:
 		animated_sprite.play("Activate")
 		activating = false
+		$"../Player".health = 100
 	else:
 		if active == false:
 			animated_sprite.play("Dormant")
