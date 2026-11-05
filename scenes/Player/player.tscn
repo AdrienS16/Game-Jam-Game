@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://rf3c5yvukqf5" path="res://assets/Grapple_Bot_Sheet.png" id="2_g2els"]
 [ext_resource type="AudioStream" uid="uid://dvhxeg7neeq6u" path="res://assets/Sounds/walk.mp3" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://ccsdmelo2d5ke" path="res://assets/Sounds/grapple.mp3" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://dpf1xivo7tu06" path="res://assets/Sounds/Decay.ogg" id="5_uiqp4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 3.0
@@ -45,3 +46,9 @@ volume_db = -10.0
 [node name="GrapplePlayer" type="AudioStreamPlayer" parent="." unique_id=1936862952]
 stream = ExtResource("4_dqkch")
 volume_db = -10.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2056526310]
+stream = ExtResource("5_uiqp4")
+volume_db = -8.0
+autoplay = true
+parameters/looping = true
