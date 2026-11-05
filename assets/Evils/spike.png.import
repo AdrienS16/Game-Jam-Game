@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qiistv4juv5o"
-path="res://.godot/imported/sliding_door.png-b43a4e3f024e92cf71d602d6626e1e02.ctex"
+uid="uid://dng2r6uqinw52"
+path="res://.godot/imported/spike.png-680196dfded39305e8ef940699e3f397.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sliding_door.png"
-dest_files=["res://.godot/imported/sliding_door.png-b43a4e3f024e92cf71d602d6626e1e02.ctex"]
+source_file="res://assets/Evils/spike.png"
+dest_files=["res://.godot/imported/spike.png-680196dfded39305e8ef940699e3f397.ctex"]
 
 [params]
 
