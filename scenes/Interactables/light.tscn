@@ -11,3 +11,10 @@ z_index = -1
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_24oxn")
 vframes = 2
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1468888945]
+z_index = -2
+points = PackedVector2Array(0, 0, 0, -30)
+closed = true
+width = 1.0
+default_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
